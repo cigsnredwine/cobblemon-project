@@ -9,6 +9,7 @@
 package com.cobblemon.mod.common.api.spawning
 
 import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.api.spawning.influence.AllowedRegionsSpawningInfluence
 import com.cobblemon.mod.common.api.spawning.spawner.PlayerSpawner
 import com.cobblemon.mod.common.api.spawning.spawner.PlayerSpawnerFactory
 import com.cobblemon.mod.common.platform.events.PlatformEvents
@@ -30,6 +31,7 @@ object CobblemonWorldSpawnerManager : SpawnerManager() {
     var spawnersForPlayers = mutableMapOf<UUID, PlayerSpawner>()
 
     init {
+        influences.add(AllowedRegionsSpawningInfluence())
         PlatformEvents.SERVER_PLAYER_LOGIN.subscribe { this.onPlayerLogin(it.player) }
         PlatformEvents.SERVER_PLAYER_LOGOUT.subscribe { this.onPlayerLogout(it.player) }
     }

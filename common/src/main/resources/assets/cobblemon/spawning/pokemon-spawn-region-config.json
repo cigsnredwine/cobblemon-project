@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "replaceWithNewVersion": true,
+  "enabled": true,
+  "allowedRegions": [
+    "kanto",
+    "johto"
+  ],
+  "availableRegions": [
+    "kanto",
+    "johto",
+    "hoenn",
+    "sinnoh",
+    "unova",
+    "kalos",
+    "alola",
+    "galar",
+    "hisui",
+    "paldea"
+  ]
+}
