@@ -114,6 +114,24 @@ esac
 
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
+if "$darwin" && [ -x /usr/libexec/java_home ] ; then
+    java_spec_version=""
+
+    if [ -n "$JAVA_HOME" ] && [ -x "$JAVA_HOME/bin/java" ] ; then
+        java_spec_version=$("$JAVA_HOME/bin/java" -XshowSettings:properties -version 2>&1 | sed -n 's/.*java.specification.version = //p' | head -n 1)
+    elif command -v java >/dev/null 2>&1 ; then
+        java_spec_version=$(java -XshowSettings:properties -version 2>&1 | sed -n 's/.*java.specification.version = //p' | head -n 1)
+    fi
+
+    if [ "$java_spec_version" != "17" ] ; then
+        detected_java_home=$(/usr/libexec/java_home -v 17 2>/dev/null)
+        if [ -n "$detected_java_home" ] ; then
+            JAVA_HOME=$detected_java_home
+            export JAVA_HOME
+        fi
+    fi
+fi
+
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
@@ -138,6 +156,16 @@ else
 Please set the JAVA_HOME variable in your environment to match the
 location of your Java installation."
     fi
+fi
+
+java_spec_version=$("$JAVACMD" -XshowSettings:properties -version 2>&1 | sed -n 's/.*java.specification.version = //p' | head -n 1)
+if [ "$java_spec_version" != "17" ] ; then
+    die "ERROR: Cobblemon 1.5.2 for Minecraft 1.20.1 must be built with Java 17.
+
+Current Java specification version: ${java_spec_version:-unknown}
+JAVACMD: $JAVACMD
+
+Install Java 17 and, on macOS, make sure '/usr/libexec/java_home -v 17' resolves correctly."
 fi
 
 # Increase the maximum file descriptors if we can.

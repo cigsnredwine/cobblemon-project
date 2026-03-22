@@ -1,5 +1,10 @@
 import utilities.VersionType
 import utilities.writeVersion
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import net.fabricmc.loom.api.LoomGradleExtensionAPI
+import net.fabricmc.loom.configuration.ide.RunConfigSettings
+import net.fabricmc.loom.task.RemapJarTask
+import org.gradle.api.tasks.bundling.Jar
 
 plugins {
     id("cobblemon.base-conventions")
@@ -13,46 +18,46 @@ val bundle: Configuration by configurations.creating {
     isCanBeResolved = true
 }
 
-loom {
-    val clientConfig = runConfigs.getByName("client")
-    clientConfig.runDir = "runClient"
+extensions.configure<LoomGradleExtensionAPI> {
+    val clientConfig: RunConfigSettings = runConfigs.getByName("client")
+    clientConfig.runDir("runClient")
     clientConfig.programArg("--username=CobblemonDev")
-    //This is AshKetchum's UUID so you get an Ash Ketchum skin
+    // This is AshKetchum's UUID so you get an Ash Ketchum skin.
     clientConfig.programArg("--uuid=93e4e551-589a-41cb-ab2d-435266c8e035")
-    val serverConfig = runConfigs.getByName("server")
-    serverConfig.runDir = "runServer"
+
+    val serverConfig: RunConfigSettings = runConfigs.getByName("server")
+    serverConfig.runDir("runServer")
 }
 
 tasks {
-
-    jar {
+    named<Jar>("jar") {
         archiveBaseName.set("Cobblemon-${project.name}")
         archiveClassifier.set("dev-slim")
     }
 
-    shadowJar {
+    named<ShadowJar>("shadowJar") {
         archiveClassifier.set("dev-shadow")
         archiveBaseName.set("Cobblemon-${project.name}")
         configurations = listOf(bundle)
         mergeServiceFiles()
     }
 
-    remapJar {
-        dependsOn(shadowJar)
-        inputFile.set(shadowJar.flatMap { it.archiveFile })
+    named<RemapJarTask>("remapJar") {
+        dependsOn("shadowJar")
+        inputFile.set(named<ShadowJar>("shadowJar").flatMap { it.archiveFile })
         archiveBaseName.set("Cobblemon-${project.name}")
         archiveVersion.set("${rootProject.version}")
     }
 
     val copyJar by registering(CopyFile::class) {
-        val productionJar = tasks.remapJar.flatMap { it.archiveFile }
-        fileToCopy = productionJar
-        destination = productionJar.flatMap {
+        val productionJar = named<RemapJarTask>("remapJar").flatMap { it.archiveFile }
+        fileToCopy.set(productionJar)
+        destination.set(productionJar.flatMap {
             rootProject.layout.buildDirectory.file("libs/${it.asFile.name}")
-        }
+        })
     }
 
-    assemble {
+    named("assemble") {
         dependsOn(copyJar)
     }
 

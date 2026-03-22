@@ -25,7 +25,6 @@ jei-api = "15.2.0.25"
 fabric-loader = "0.15.10"
 fabric-api = "0.89.0+1.20.1"
 fabric-kotlin = "1.9.3+kotlin.1.8.20"
-fabric-permissions-api = "0.2-SNAPSHOT"
 lambDynamicLights = "2.3.2+1.20.1"
 
 # Forge
@@ -70,7 +69,6 @@ icu4j = { group = "com.ibm.icu", name = "icu4j", version.ref = "icu4j" }
 fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric-loader" }
 fabric-api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric-api" }
 fabric-kotlin = { group = "net.fabricmc", name = "fabric-language-kotlin", version.ref = "fabric-kotlin" }
-fabric-permissions = { group = "me.lucko", name = "fabric-permissions-api", version.ref = "fabric-permissions-api" }
 adorn-fabric = { group = "maven.modrinth", name = "adorn", version = "5.0.0-fabric"}
 lambDynamicLights = { group = "maven.modrinth", name = "lambdynamiclights", version.ref = "lambDynamicLights"}
 jei-fabric = { group = "mezz.jei", name = "jei-1.20.1-fabric", version.ref = "jei-api"}
@@ -93,7 +91,7 @@ classgraph = { group = "io.github.classgraph", name = "classgraph", version.ref 
 
 [bundles]
 kotlin = [ "kotlin-stdlib", "kotlin-reflect" ]
-fabric = [ "fabric-kotlin", "fabric-permissions" ]
+fabric = [ "fabric-kotlin" ]
 fabric-kotlin-deps = [ "jetbrains-annotations", "serialization-core", "serialization-json" ]
 fabric-integrations-compileOnly = [ "adorn-fabric", "lambDynamicLights" ]
 fabric-integrations-runtimeOnly = [ "jei-fabric" ]

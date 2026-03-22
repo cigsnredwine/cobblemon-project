@@ -1,3 +1,5 @@
+import utilities.gitBranchName
+import utilities.gitCommitHash
 import utilities.isSnapshot
 import utilities.version
 import java.time.OffsetDateTime
@@ -20,7 +22,6 @@ plugins {
 
     id("net.kyori.blossom")
     id("org.jetbrains.gradle.plugin.idea-ext")
-    id("net.nemerosa.versioning") version "2.8.2"
 }
 
 architectury {
@@ -86,8 +87,8 @@ sourceSets {
                 property("modid", "cobblemon")
                 property("version", project.version())
                 property("isSnapshot", if(rootProject.isSnapshot()) "true" else "false")
-                property("gitCommit", versioning.info.commit)
-                property("branch", versioning.info.branch)
+                property("gitCommit", rootProject.gitCommitHash())
+                property("branch", rootProject.gitBranchName())
                 System.getProperty("buildNumber")?.let { property("buildNumber", it) }
             }
         }
