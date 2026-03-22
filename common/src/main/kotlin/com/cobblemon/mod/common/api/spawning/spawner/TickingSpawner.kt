@@ -10,6 +10,7 @@ package com.cobblemon.mod.common.api.spawning.spawner
 
 import com.cobblemon.mod.common.api.spawning.SpawnCause
 import com.cobblemon.mod.common.api.spawning.SpawnerManager
+import com.cobblemon.mod.common.api.spawning.BestSpawner
 import com.cobblemon.mod.common.api.spawning.context.SpawningContext
 import com.cobblemon.mod.common.api.spawning.detail.EntitySpawnResult
 import com.cobblemon.mod.common.api.spawning.detail.SpawnAction
@@ -68,13 +69,16 @@ abstract class TickingSpawner(
 
         ticksUntilNextSpawn -= tickTimerMultiplier
         if (ticksUntilNextSpawn <= 0) {
-            val spawn = run(SpawnCause(spawner = this, bucket = chooseBucket(), entity = getCauseEntity()))
             ticksUntilNextSpawn = ticksBetweenSpawns
-            if (spawn != null) {
-                val ctx = spawn.first
-                val detail = spawn.second
-                val spawnAction = detail.doSpawn(ctx = ctx)
-                spawnAction.complete()
+            val attempts = BestSpawner.spawnRateConfig.getSpawnAttemptsPerCycle()
+            repeat(attempts) {
+                val spawn = run(SpawnCause(spawner = this, bucket = chooseBucket(), entity = getCauseEntity()))
+                if (spawn != null) {
+                    val ctx = spawn.first
+                    val detail = spawn.second
+                    val spawnAction = detail.doSpawn(ctx = ctx)
+                    spawnAction.complete()
+                }
             }
         }
     }

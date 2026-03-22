@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "replaceWithNewVersion": true,
+  "enabled": true,
+  "spawnAttemptsMultiplier": 1.5,
+  "regionWeightMultipliers": {
+    // example
+    // "kanto": 1.1,
+    // leave blank for default
+  },
+  "biomeWeightMultipliers": {
+    // example
+    // "minecraft:plains": 1.3,
+    // leave blank for default
+  },
+  "speciesWeightMultipliers": {
+    // example
+    // "pikachu": 1.3,
+    // leave blank for default
+  }
+}

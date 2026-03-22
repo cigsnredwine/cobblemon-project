@@ -34,6 +34,7 @@ import com.cobblemon.mod.common.api.spawning.detail.SpawnAction
 import com.cobblemon.mod.common.api.spawning.detail.SpawnDetail
 import com.cobblemon.mod.common.api.spawning.influence.SpawningInfluence
 import com.cobblemon.mod.common.api.spawning.preset.PokemonSpawnRegionConfig
+import com.cobblemon.mod.common.api.spawning.preset.PokemonSpawnRateConfig
 import com.cobblemon.mod.common.api.spawning.preset.BasicSpawnDetailPreset
 import com.cobblemon.mod.common.api.spawning.preset.BestSpawnerConfig
 import com.cobblemon.mod.common.api.spawning.preset.PokemonSpawnDetailPreset
@@ -83,6 +84,7 @@ import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 object BestSpawner {
     var config = BestSpawnerConfig()
     var regionConfig = PokemonSpawnRegionConfig()
+    var spawnRateConfig = PokemonSpawnRateConfig()
     val spawnerManagers = mutableListOf<SpawnerManager>(CobblemonWorldSpawnerManager)
     var defaultPokemonDespawner: Despawner<PokemonEntity> = CobblemonAgingDespawner(getAgeTicks = { it.ticksLived })
 
@@ -114,6 +116,7 @@ object BestSpawner {
 
         config = BestSpawnerConfig.load()
         regionConfig = PokemonSpawnRegionConfig.load()
+        spawnRateConfig = PokemonSpawnRateConfig.load()
 
         SpawnDetailPresets.registerPresetType(BasicSpawnDetailPreset.NAME, BasicSpawnDetailPreset::class.java)
         SpawnDetailPresets.registerPresetType(PokemonSpawnDetailPreset.NAME, PokemonSpawnDetailPreset::class.java)
