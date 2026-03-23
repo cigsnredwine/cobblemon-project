@@ -40,5 +40,31 @@ common/.fabric
 /.kotlin/
 **/.kotlin/
 
+# Repo root moved up one level; keep nested project build outputs ignored
+/cobblemon-custom-mod/*/generated/resources/*
+/cobblemon-custom-mod/fabric/src/generated/resources/cobblemon-common.accesswidener
+/cobblemon-custom-mod/.ignored/
+/cobblemon-custom-mod/common/.fabric
+/cobblemon-custom-mod/.kotlin/
+/cobblemon-custom-mod/**/.kotlin/
+
+# Server runtime files
+/cobblemon-server/.curseclient
+/cobblemon-server/.fabric/
+/cobblemon-server/XaeroWaypoints_BACKUP*/
+/cobblemon-server/downloads/
+/cobblemon-server/local/
+/cobblemon-server/mods/
+/cobblemon-server/logs/
+/cobblemon-server/crash-reports/
+/cobblemon-server/saves/
+/cobblemon-server/world/
+/cobblemon-server/xaero/
+/cobblemon-server/options.txt
+/cobblemon-server/servers.dat
+/cobblemon-server/servers.dat_old
+/cobblemon-server/user-prefs.json
+/cobblemon-server/usercache.json
+
 # MacOS
 .DS_Store

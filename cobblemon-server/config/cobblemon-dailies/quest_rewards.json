@@ -1,0 +1,52 @@
+{
+  "questRewards": {
+    "catch_pokemon": [
+      {
+        "itemId": "minecraft:diamond",
+        "count": 3,
+        "displayName": "Diamond Reward",
+        "enableScaling": false,
+        "scalingType": "linear",
+        "baseRequirement": 500,
+        "maxScaling": 4.0
+      }
+    ],
+    "gain_pokemon_experience": [
+      {
+        "itemId": "minecraft:emerald",
+        "count": 5,
+        "displayName": "Emerald Reward",
+        "enableScaling": false,
+        "scalingType": "linear",
+        "baseRequirement": 500,
+        "maxScaling": 4.0
+      }
+    ],
+    "win_pvp_battle": [
+      {
+        "itemId": "minecraft:netherite_ingot",
+        "count": 2,
+        "displayName": "Netherite Reward",
+        "enableScaling": false,
+        "scalingType": "linear",
+        "baseRequirement": 500,
+        "maxScaling": 4.0
+      }
+    ],
+    "trade_pokemon": [
+      {
+        "itemId": "minecraft:gold_ingot",
+        "count": 8,
+        "displayName": "Gold Reward",
+        "enableScaling": false,
+        "scalingType": "linear",
+        "baseRequirement": 500,
+        "maxScaling": 4.0
+      }
+    ]
+  },
+  "enableDailyLimits": true,
+  "dailyResetHour": 6,
+  "timeZone": "UTC",
+  "enableDebugLogging": false
+}

@@ -1,0 +1,276 @@
+{
+  "scheduleRaids": true,
+  "initialDelaySeconds": 300,
+  "raidIntervalSeconds": 7200,
+  "gracePeriodSeconds": 300,
+  "raidLengthSeconds": 900,
+  "spawnRadius": 16,
+  "spawn": {
+    "x": -245,
+    "y": 188,
+    "z": -435
+  },
+  "raids": [
+    {
+      "rewardTiers": [
+        {
+          "startPlace": 1,
+          "endPlace": 1,
+          "captureRate": 0.2,
+          "items": [
+            {
+              "item": "numismatics:cog",
+              "amount": 50
+            },
+            {
+              "item": "cobble-raids:raid_ticket",
+              "amount": 2
+            },
+            {
+              "item": "cobble-raids:iv_candy",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "startPlace": 2,
+          "endPlace": 2,
+          "captureRate": 0.15,
+          "items": [
+            {
+              "item": "numismatics:cog",
+              "amount": 45
+            },
+            {
+              "item": "cobble-raids:raid_ticket",
+              "amount": 2
+            },
+            {
+              "item": "cobble-raids:iv_candy",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "startPlace": 3,
+          "endPlace": 3,
+          "captureRate": 0.1,
+          "items": [
+            {
+              "item": "numismatics:cog",
+              "amount": 40
+            },
+            {
+              "item": "cobble-raids:raid_ticket",
+              "amount": 2
+            },
+            {
+              "item": "cobble-raids:iv_candy",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "startPlace": 4,
+          "captureRate": 0.05,
+          "items": [
+            {
+              "item": "numismatics:cog",
+              "amount": 32
+            },
+            {
+              "item": "cobble-raids:raid_ticket",
+              "amount": 2
+            },
+            {
+              "item": "cobble-raids:iv_candy",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "pool": [
+        "deoxys",
+        "eternatus",
+        "groudon",
+        "kyogre",
+        "kyurem",
+        "latias",
+        "latios",
+        "necrozma",
+        "rayquaza",
+        "reshiram",
+        "zekrom"
+      ],
+      "chance": 0.2,
+      "waves": 3,
+      "waveIncrement": 10,
+      "level": 80,
+      "captureLevel": 20,
+      "isLegendary": true,
+      "redeemCost": 50
+    },
+    {
+      "rewardTiers": [
+        {
+          "startPlace": 1,
+          "endPlace": 1,
+          "captureRate": 0.25,
+          "items": [
+            {
+              "item": "numismatics:cog",
+              "amount": 30
+            },
+            {
+              "item": "cobble-raids:raid_ticket",
+              "amount": 1
+            },
+            {
+              "item": "cobble-raids:iv_candy",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "startPlace": 2,
+          "endPlace": 2,
+          "captureRate": 0.2,
+          "items": [
+            {
+              "item": "numismatics:cog",
+              "amount": 25
+            },
+            {
+              "item": "cobble-raids:raid_ticket",
+              "amount": 1
+            },
+            {
+              "item": "cobble-raids:iv_candy",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "startPlace": 3,
+          "endPlace": 3,
+          "captureRate": 0.15,
+          "items": [
+            {
+              "item": "numismatics:cog",
+              "amount": 20
+            },
+            {
+              "item": "cobble-raids:raid_ticket",
+              "amount": 1
+            },
+            {
+              "item": "cobble-raids:iv_candy",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "startPlace": 4,
+          "captureRate": 0.1,
+          "items": [
+            {
+              "item": "numismatics:cog",
+              "amount": 15
+            },
+            {
+              "item": "cobble-raids:raid_ticket",
+              "amount": 1
+            },
+            {
+              "item": "cobble-raids:iv_candy",
+              "amount": 1
+            }
+          ]
+        }
+      ],
+      "pool": [
+        "nidoqueen",
+        "nidoking",
+        "ninetales",
+        "arcanine",
+        "alakazam",
+        "slowbro",
+        "golem",
+        "snorlax",
+        "tyranitar",
+        "gardevoir",
+        "aggron",
+        "medicham",
+        "flygon",
+        "armaldo",
+        "milotic",
+        "smeargle",
+        "roserade",
+        "rampardos",
+        "bastiodon",
+        "drifblim",
+        "garchomp",
+        "drapion",
+        "toxicroak",
+        "magnezone",
+        "rhyperior",
+        "tangrowth",
+        "magmortar",
+        "krookodile",
+        "cofagrigus ",
+        "carracosta",
+        "archeops",
+        "zoroark",
+        "gothitelle",
+        "ferrothorn",
+        "eelektross",
+        "haxorus",
+        "beartic",
+        "golurk",
+        "hydreigon",
+        "volcarona",
+        "pyroar",
+        "florges",
+        "doublade",
+        "aegislash",
+        "dragalge",
+        "tyrantrum",
+        "aurorus",
+        "goodra",
+        "bewear",
+        "kommoo",
+        "flapple",
+        "appletun",
+        "toxtricity",
+        "grimmsnarl",
+        "perrserker",
+        "sirfetchd",
+        "tinkaton",
+        "glimmora",
+        "revavroom",
+        "greattusk",
+        "screamtail",
+        "brutebonnet",
+        "fluttermane",
+        "slitherwing",
+        "ironbundle",
+        "ironmoth",
+        "ironthorns",
+        "baxcalibur",
+        "roaringmoon",
+        "ironvaliant",
+        "dragonite",
+        "ludicolo",
+        "lickilicky"
+      ],
+      "chance": 0.8,
+      "waves": 3,
+      "waveIncrement": 10,
+      "level": 50,
+      "captureLevel": 20,
+      "isLegendary": false,
+      "redeemCost": 25
+    }
+  ],
+  "raidSizeMultiplier": 2
+}
